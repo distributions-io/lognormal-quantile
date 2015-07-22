@@ -7,7 +7,7 @@ Quantile Function
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="Q(p;\mu,\sigma)=\exp\left( \mu + \sigma \Phi^{-1}(p) \right )" data-equation="eq:quantile_function">
-	<img src="" alt="Quantile function for a Lognormal distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/lognormal-quantile/a8cd405d2d6841e4372d5ab11eaa6fae618a4f47/docs/img/eqn.svg" alt="Quantile function for a Lognormal distribution.">
 	<br>
 </div>
 
@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = quantile( 0.25 );
-// returns
+// returns ~0.509
 
 x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x );
-// returns [...]
+// returns [ 0, ~0.431, ~0.776, ~1.29, ~2.32, +Infinity ]
 
 x = new Float32Array( x );
 out = quantile( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [0,~0.431,~0.776,~1.29,~2.32,+Infinity] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = quantile( mat );
 /*
-	[
-
-	   ]
+	[  0    ~0.38
+	  ~0.65 ~1
+	  ~1.54 ~2.63 ]
 */
 ```
 
@@ -88,7 +88,7 @@ var out = quantile( x, {
 	'mu': 8,
 	'sigma': 8
 });
-// returns [...]
+// returns [0,~1.3,~95,~2981,~93510,~6847352]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -110,7 +110,7 @@ function getValue( d, i ) {
 var out = quantile( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ 0, ~0.431, ~0.776, ~1.29, ~2.32, +Infinity ]
 ```
 
 
@@ -132,12 +132,12 @@ var out = quantile( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
-		{'x':[5,]}
+		{'x':[0,0]},
+		{'x':[1,~0.431]},
+		{'x':[2,~0.776]},
+		{'x':[3,~1.29]},
+		{'x':[4,~2.32]},
+		{'x':[5,+Infinity]}
 	]
 */
 
@@ -155,13 +155,13 @@ x = new Float32Array( [0.2,0.4,0.6,0.8] );
 out = quantile( x, {
 	'dtype': 'int32'
 });
-// returns Int32Array( [...] )
+// returns Int32Array( [0,0,1,2] )
 
 // Works for plain arrays, as well...
 out = quantile( [0.2,0.4,0.6,0.8], {
 	'dtype': 'uint8'
 });
-// returns Uint8Array( [...] )
+// returns Uint8Array( [0,0,1,2] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -178,7 +178,7 @@ x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ 0, ~0.431, ~0.776, ~1.29, ~2.32, +Infinity ]
 
 bool = ( x === out );
 // returns true
@@ -198,9 +198,9 @@ out = quantile( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[  0    ~0.38
+	  ~0.65 ~1
+	  ~1.54 ~2.63 ]
 */
 
 bool = ( mat === out );
