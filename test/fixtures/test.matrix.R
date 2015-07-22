@@ -1,8 +1,8 @@
 options( digits = 16 )
 library( jsonlite )
 
-mu = 0
-sigma = 1
+mu = 6
+sigma = 2
 probs = 0:24 / 25
 y = qlnorm( probs, mu, sigma )
 

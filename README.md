@@ -6,7 +6,7 @@ Quantile Function
 
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:quantile_function">
+<div class="equation" align="center" data-raw-text="Q(p;\mu,\sigma)=\exp\left( \mu + \sigma \Phi^{-1}(p) \right )" data-equation="eq:quantile_function">
 	<img src="" alt="Quantile function for a Lognormal distribution.">
 	<br>
 </div>

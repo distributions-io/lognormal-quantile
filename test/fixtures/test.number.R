@@ -3,7 +3,7 @@ library( jsonlite )
 
 
 mu = 0
-sigma = 1
+sigma = 1.5
 probs = c( 0, 0.25, 0.5, 0.75, 1 )
 y = qlnorm( probs, mu, sigma )
 
