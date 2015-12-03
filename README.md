@@ -1,17 +1,17 @@
 Quantile Function
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) distribution [quantile function](https://en.wikipedia.org/wiki/Quantile_function).
 
-The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) random variable is
+The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="Q(p;\mu,\sigma)=\exp\left( \mu + \sigma \Phi^{-1}(p) \right )" data-equation="eq:quantile_function">
-	<img src="https://cdn.rawgit.com/distributions-io/lognormal-quantile/a8cd405d2d6841e4372d5ab11eaa6fae618a4f47/docs/img/eqn.svg" alt="Quantile function for a Lognormal distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/lognormal-quantile/a8cd405d2d6841e4372d5ab11eaa6fae618a4f47/docs/img/eqn.svg" alt="Quantile function for a lognormal distribution.">
 	<br>
 </div>
 
-for `0 <= p < 1`, where `mu` is the location parameter and `sigma` is the scale parameter.
+for `0 <= p < 1`, where `mu` is the location parameter and `sigma > 0` is the scale parameter.
 
 ## Installation
 
@@ -30,7 +30,7 @@ var quantile = require( 'distributions-lognormal-quantile' );
 
 #### quantile( p[, options] )
 
-Evaluates the [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for the [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) distribution. `p` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) between `0` and `1`, an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
+Evaluates the [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for the [lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) distribution. `p` may be either a [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) between `0` and `1`, an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), a [`typed array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), or a [`matrix`](https://github.com/dstructs/matrix).
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),
@@ -79,7 +79,7 @@ The function accepts the following `options`:
 *	__path__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path.
 *	__sep__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path separator. Default: `'.'`.
 
-A [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) distribution is a function of 2 parameter(s): `mu`(location parameter) and `sigma`(scale parameter). By default, `mu` is equal to `0` and `sigma` is equal to `1`. To adjust either parameter, set the corresponding option(s).
+A [Lognormal](https://en.wikipedia.org/wiki/Lognormal_distribution) distribution is a function of two parameter(s): `mu`(location parameter) and `sigma > 0`(scale parameter). By default, `mu` is equal to `0` and `sigma` is equal to `1`. To adjust either parameter, set the corresponding option.
 
 ``` javascript
 var x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
@@ -389,8 +389,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/lognormal-quantile/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/lognormal-quantile
 
-[coveralls-image]: https://img.shields.io/coveralls/distributions-io/lognormal-quantile/master.svg
-[coveralls-url]: https://coveralls.io/r/distributions-io/lognormal-quantile?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/lognormal-quantile/master.svg
+[codecov-url]: https://codecov.io/github/distributions-io/lognormal-quantile?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/lognormal-quantile.svg
 [dependencies-url]: https://david-dm.org/distributions-io/lognormal-quantile
