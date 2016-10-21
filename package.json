@@ -1,6 +1,6 @@
 {
   "name": "distributions-lognormal-quantile",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Lognormal distribution quantile function.",
   "author": {
     "name": "Philipp Burckhardt",
