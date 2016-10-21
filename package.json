@@ -40,7 +40,6 @@
     "url": "https://github.com/distributions-io/lognormal-quantile/issues"
   },
   "dependencies": {
-    "codecov": "^1.0.1",
     "compute-array-constructors": "^1.0.0",
     "distributions-normal-quantile": "0.0.0",
     "dstructs-matrix": "^2.0.0",
@@ -59,6 +58,7 @@
     "validate.io-typed-array-like": "^1.0.0"
   },
   "devDependencies": {
+    "codecov": "^1.0.1",
     "chai": "3.x.x",
     "mocha": "2.x.x",
     "istanbul": "^0.3.0",
